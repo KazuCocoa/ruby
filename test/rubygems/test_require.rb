@@ -73,7 +73,7 @@ class TestGemRequire < Gem::TestCase
     $LOAD_PATH.unshift dash_i_arg
 
     assert_require 'test_gem_require_a'
-    assert_require 'b/c' # this should be required from -I
+    assert_require "#{dash_i_arg}/b/c" # this should be required from -I
     assert_equal "world", ::Object::HELLO
   ensure
     $LOAD_PATH.replace lp
